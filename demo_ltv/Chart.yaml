@@ -23,7 +23,7 @@ version: 1.0.0
 # It is recommended to use it with quotes.
 appVersion: "1.0.2"
 
-icon: https://intersystems.github.io/sds-charts/demo_ltv/icon.png
+icon: https://amirsamary.github.io/sds-charts-dev-finserv/demo_ltv/icon.png
 
 annotations:
   intersystems/sds-title: Financial Services Live Trade Valuation Demo
