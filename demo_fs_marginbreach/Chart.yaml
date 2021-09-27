@@ -21,9 +21,9 @@ version: 1.0.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "1.0.1"
+appVersion: "1.0.2"
 
-icon: https://intersystems.github.io/sds-charts/demo_fs_marginbreach/icon.jpg
+icon: https://amirsamary.github.io/sds-charts-dev-finserv/demo_fs_marginbreach/icon.jpg
 
 annotations:
   intersystems/sds-title: Financial Services Trade Margin Breaching Demo

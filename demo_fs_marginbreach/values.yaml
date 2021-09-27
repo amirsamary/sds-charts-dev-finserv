@@ -22,7 +22,7 @@ mirrored: false
 image:
   registry: containers.intersystems.com/iscinternal/sds
   repository: occ_service
-  tag: 1.0.1
+  tag: 1.0.2
 
 # This will be injected by the control plane:
 imagePullSecrets:
