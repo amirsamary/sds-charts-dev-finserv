@@ -1,0 +1,40 @@
+# Used to specify where the deployment is being done
+cloudProvider: "dev"
+cloudProviderRegion: "dev-region"
+serviceInternalName: "occ-service"
+defaultRegistry: containers.intersystems.com/iscinternal/sds
+skaffold: false
+
+storageDB: 
+  size : 2000Gi
+  storageClass : local-path
+storageWIJ: 
+  size: 50Gi
+  storageClass : local-path
+storageJournal1: 
+  size: 2000Gi
+  storageClass : local-path
+storageJournal2: 
+  size: 2000Gi
+  storageClass : local-path
+
+mirrored: false
+image:
+  registry: containers.intersystems.com/iscinternal/sds
+  repository: occ_service
+  tag: 1.0.1
+
+# This will be injected by the control plane:
+imagePullSecrets:
+ - name: intersystems-container-registry-secret
+
+superServer:
+  enabled: "false"
+  hostname: "localhost"
+  port: "10000"
+
+management:
+  enabled: "false"
+  hostname: "localhost"
+  port: "10001"
+

@@ -1,0 +1,35 @@
+apiVersion: v1
+entries:
+  demo-ltv:
+  - annotations:
+      intersystems/sds-category: demo
+      intersystems/sds-organization: InterSystems Corporation
+      intersystems/sds-title: Financial Services Live Trade Valuation Demo
+    apiVersion: v2
+    appVersion: 1.0.2
+    created: "2021-09-27T14:37:52.988682-04:00"
+    description: Use this service to securely stream real-time financial transactions.
+    digest: 6e24faa2e5fd153eab1534de4a5f0b03af8c8aacfaacd33847b618eddc1c39e3
+    icon: https://intersystems.github.io/sds-charts/demo_ltv/icon.png
+    name: demo-ltv
+    type: application
+    urls:
+    - https://intersystems.github.io/sds-charts-dev-finserv/demo-ltv-1.0.0.tgz
+    version: 1.0.0
+  demo_fs_marginbreach:
+  - annotations:
+      intersystems/sds-category: demo
+      intersystems/sds-organization: InterSystems Corporation
+      intersystems/sds-title: Financial Services Trade Margin Breaching Demo
+    apiVersion: v2
+    appVersion: 1.0.1
+    created: "2021-09-27T14:37:52.989839-04:00"
+    description: Use this service to securely stream real-time financial transactions.
+    digest: c200a2c9215c2dd3fc6f4bc1016079b472f15ccefdf4960bade0caa294859337
+    icon: https://intersystems.github.io/sds-charts/demo_fs_marginbreach/icon.jpg
+    name: demo_fs_marginbreach
+    type: application
+    urls:
+    - https://intersystems.github.io/sds-charts-dev-finserv/demo_fs_marginbreach-1.0.0.tgz
+    version: 1.0.0
+generated: "2021-09-27T14:37:52.987105-04:00"
