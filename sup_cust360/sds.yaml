@@ -1,0 +1,139 @@
+apiVersion: v1
+sections:
+- label: High Availability
+  fields:
+  - field: mirrored
+    type: boolean
+    label: Mirroring Support
+    help: If you enable mirroring, then it's mirrored
+    value: "false"
+secrets:
+- name: iris-key-secret
+  reason: The IRIS License to be used with this deployment
+- name: intersystems-container-registry-secret
+  reason: These are the credentials to authenticate with containers.intersystems.com
+EULSA: https://www.intersystems.com/EULSA-Docs/InterSystems_IRIS_Cloud_End_User-8_14_19.pdf 
+endpoints:
+- title: Introduction to Patient Index
+  group: Documentation
+  description: What is Healthshare Patient Index?
+  type: browsing
+  url: https://www.intersystems.com/products/healthshare/patient-index/
+  contexts: 
+  - catalog
+  - documentation
+  visibility: foreign
+  presentation: link
+- title: Learn HealthShare Patient Index
+  group: Learn
+  description: The HealthShare Patient Index Overview course provides an introduction to the use of a Master Patient Index.
+  type: browsing
+  url: https://learning.intersystems.com/course/view.php?id=118&ssoPass=1
+  contexts: 
+  - catalog
+  - documentation
+  visibility: foreign
+  presentation: link
+  
+- title: Production
+  icon: bpleditor.png
+  group: Interoperability - Config
+  description: Open the IRIS Interoperability Production Editor
+  type: browsing
+  url: http://{externalService.host}:{externalService.port}/csp/user/EnsPortal.ProductionConfig.zen
+  contexts: 
+  - manage
+  visibility: external
+  presentation: link
+  externalService: management
+
+- title: Messages
+  icon: bpleditor.png
+  group: Interoperability - View
+  description: Search and View Message Traces
+  type: browsing
+  url: http://{externalService.host}:{externalService.port}/csp/user/EnsPortal.MessageViewer.zen
+  contexts: 
+  - manage
+  visibility: external
+  presentation: link
+  externalService: management
+
+storage:
+  storageSpecs:
+  - name: database
+    label: Database
+    sizeField: storageDB.size
+    storageClassField: storageDB.storageClass
+    help: This is the storage reserved for your database...
+  - name: wij
+    label: Write Image Journal
+    sizeField: storageWIJ.size
+    storageClassField: storageWIJ.storageClass
+    help: This is the storage reserved for your database...
+  - name: journal1
+    label: Primary Journal
+    sizeField: storageJournal1.size
+    storageClassField: storageJournal1.storageClass
+    help: This is the storage reserved for your primary journal data...
+  - name: journal2
+    label: Secondary Journal
+    sizeField: storageJournal2.size
+    storageClassField: storageJournal2.storageClass
+    help: This is the storage reserved for your secondary journal data...
+  allowCustom: true
+  storageOptions:
+  - name: Small
+    help: Ideal for small workloads...
+    storageOptionSpecs:
+    - storageSpecName: database
+      size: 100
+      IOPS: 1000
+    - storageSpecName: wij
+      size: 10
+      IOPS: 500
+    - storageSpecName: journal1
+      size: 30
+      IOPS: 1500
+    - storageSpecName: journal2
+      size: 30
+      IOPS: 900
+  - name: Medium 
+    help: Ideal for medium workloads...
+    storageOptionSpecs:
+    - storageSpecName: database
+      size: 300
+      IOPS: 3000
+    - storageSpecName: wij
+      size: 50
+      IOPS: 2000
+    - storageSpecName: journal1
+      size: 600
+      IOPS: 3000
+    - storageSpecName: journal2
+      size: 300
+      IOPS: 1500
+  - name: Large
+    help: Ideal for large workloads...
+    storageOptionSpecs:
+    - storageSpecName: database
+      size: 1000
+      IOPS: 10000
+    - storageSpecName: wij
+      size: 200
+      IOPS: 10000
+    - storageSpecName: journal1
+      size: 1250
+      IOPS: 12500
+    - storageSpecName: journal2
+      size: 500
+      IOPS: 3500
+externalServicesDeclarations:
+ - name: management
+   type: loadBalancer
+   hostnameChartField: management.hostname
+   loadBalancerPortChartField: management.port
+   enabled: false
+   enabledChartField: management.enabled
+   label: Management Portal over Load Balancer
+   description: Port to access the management portal over a Load Balancer

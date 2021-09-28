@@ -1,0 +1,32 @@
+# Used to specify where the deployment is being done
+cloudProvider: "dev"
+cloudProviderRegion: "dev"
+skaffold: false
+
+storageDB: 
+  size : 50Gi
+  storageClass : ssd-storageclass-1
+storageWIJ: 
+  size: 25Gi
+  storageClass : ssd-storageclass-1
+storageJournal1: 
+  size: 50Gi
+  storageClass : ssd-storageclass-1
+storageJournal2: 
+  size: 3Gi
+  storageClass : ssd-storageclass-1
+
+mirrored: false
+image:
+  registry: containers.intersystems.com/iscinternal/sds
+  repository: per_iris
+  tag: 1.6.1
+
+# This will be injected by the control plane:
+imagePullSecrets:
+ - name: intersystems-container-registry-secret
+
+management:
+  enabled: true
+  hostname: "localhost"
+  port: "10001"

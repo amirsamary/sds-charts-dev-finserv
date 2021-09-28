@@ -7,7 +7,7 @@ entries:
       intersystems/sds-title: Financial Services Live Trade Valuation Demo
     apiVersion: v2
     appVersion: 1.0.2
-    created: "2021-09-27T15:43:43.652776-04:00"
+    created: "2021-09-27T21:24:10.162834-04:00"
     description: Use this service to securely stream real-time financial transactions.
     digest: 1b2f111580b4645c95cc50de1b90056c19acbf47bc3173011bcb22e114aea6be
     icon: https://amirsamary.github.io/sds-charts-dev-finserv/demo_ltv/icon.png
@@ -23,7 +23,7 @@ entries:
       intersystems/sds-title: Financial Services Trade Margin Breaching Demo
     apiVersion: v2
     appVersion: 1.0.2
-    created: "2021-09-27T15:43:43.653328-04:00"
+    created: "2021-09-27T21:24:10.163483-04:00"
     description: Use this service to securely stream real-time financial transactions.
     digest: 181e236c67fdcae5e198764b409062d3e1b5f5f449f93d44aff911af232ba0a4
     icon: https://amirsamary.github.io/sds-charts-dev-finserv/demo_fs_marginbreach/icon.jpg
@@ -32,4 +32,55 @@ entries:
     urls:
     - https://amirsamary.github.io/sds-charts-dev-finserv/demo_fs_marginbreach-1.0.0.tgz
     version: 1.0.0
-generated: "2021-09-27T15:43:43.651238-04:00"
+  sup_bus360:
+  - annotations:
+      intersystems/sds-category: supporting
+      intersystems/sds-organization: InterSystems Corporation
+      intersystems/sds-title: Financial Services Business 360
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-09-27T21:24:10.164181-04:00"
+    description: Provide a consolidated live and historical view of your business
+      across products, entities, and geographies.
+    digest: 14bffef22acecf601959326a584ad0a54f01a693446d8766b41481a11f1e97b5
+    icon: https://amirsamary.github.io/sds-charts-dev-finserv/sup_bus360/icon.png
+    name: sup_bus360
+    type: application
+    urls:
+    - https://amirsamary.github.io/sds-charts-dev-finserv/sup_bus360-1.0.0.tgz
+    version: 1.0.0
+  sup_cust360:
+  - annotations:
+      intersystems/sds-category: supporting
+      intersystems/sds-organization: InterSystems Corporation
+      intersystems/sds-title: Financial Services Customer 360
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-09-27T21:24:10.164898-04:00"
+    description: Provide a consolidated live and historical view of your customer
+      across the products and services provided and other activities.
+    digest: 72df8287a70bebca674ecf907c89ef06d059786c791c5ff0230b42d45d37baed
+    icon: https://amirsamary.github.io/sds-charts-dev-finserv/sup_cust360/icon.png
+    name: sup_cust360
+    type: application
+    urls:
+    - https://amirsamary.github.io/sds-charts-dev-finserv/sup_cust360-1.0.0.tgz
+    version: 1.0.0
+  sup_risk360:
+  - annotations:
+      intersystems/sds-category: supporting
+      intersystems/sds-organization: InterSystems Corporation
+      intersystems/sds-title: Financial Services Risk 360
+    apiVersion: v2
+    appVersion: 1.0.0
+    created: "2021-09-27T21:24:10.165599-04:00"
+    description: Provide a consolidated live and historical view of various risk exposures
+      across and within business, products, regions, and entities.
+    digest: cb3e93f5d8d8067d47a105e9e2a7094b679b805d30f175b9e1e6a1970d5d2726
+    icon: https://amirsamary.github.io/sds-charts-dev-finserv/sup_risk360/icon.png
+    name: sup_risk360
+    type: application
+    urls:
+    - https://amirsamary.github.io/sds-charts-dev-finserv/sup_risk360-1.0.0.tgz
+    version: 1.0.0
+generated: "2021-09-27T21:24:10.160886-04:00"
