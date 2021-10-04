@@ -24,12 +24,25 @@ compute:
 mirrored: false
 image:
   registry: containers.intersystems.com/iscinternal/sds/demo_ltv
-  repository: ltv_service
-  tag: 1.0.2
+  tag: 2.0.0
+  backend:
+    repository: ltv_service
+  frontend:
+    repository: ltv_frontend
 
 # This will be injected by the control plane:
 imagePullSecrets:
  - name: intersystems-container-registry-secret
+
+# Amir: Feb/2021
+# In the future, we need to see how we can secure the ingress with TLS
+ingress:
+  enabled: true
+  host: localhost
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
 
 superServer:
   enabled: "false"
@@ -40,4 +53,9 @@ management:
   enabled: "false"
   hostname: "localhost"
   port: "10001"
+
+ui:
+  enabled: "false"
+  hostname: "localhost"
+  port: "10002"
 

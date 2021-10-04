@@ -1,0 +1,14 @@
+{{- if eq (toString .Values.ui.enabled) "true" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: ltv-frontend
+  namespace: {{ .Release.Name }}
+spec:
+  selector:
+    app: ltv-frontend
+  ports:
+    - port: {{ .Values.ui.port }}
+      targetPort: 4200
+  type: LoadBalancer
+{{- end }}

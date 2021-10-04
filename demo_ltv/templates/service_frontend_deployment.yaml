@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ltv-frontend
+  namespace: {{.Release.Namespace}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ltv-frontend
+  template:
+    metadata:
+      labels:
+        app: ltv-frontend
+    spec:
+      #priorityClassName: sds-normal
+      {{- if .Values.ISCRegistrySecret }}
+      imagePullSecrets:
+        - name: {{ .Values.ISCRegistrySecret }}
+      {{- end }}
+      {{- if eq .Values.cloudProvider "aws"}}
+      nodeSelector:
+        sds/node-type: cp-frontend
+      {{- end }}
+      containers:
+        - name: ltv-frontend
+          {{- if eq .Values.skaffold true }}
+          image: {{ .Values.frontend.skaffoldImage }}
+          {{- else }}
+          image: {{ .Values.image.registry }}/{{ .Values.image.frontend.repository }}:{{ .Values.image.tag }}
+          {{- end }}
+          ports:
+            - containerPort: 4200
