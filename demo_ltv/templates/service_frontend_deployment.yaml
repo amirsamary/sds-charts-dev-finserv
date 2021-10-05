@@ -12,11 +12,11 @@ spec:
     metadata:
       labels:
         app: ltv-frontend
-    spec:
+    spec:     
       #priorityClassName: sds-normal
-      {{- if .Values.ISCRegistrySecret }}
-      imagePullSecrets:
-        - name: {{ .Values.ISCRegistrySecret }}
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:      
+{{ toYaml .Values.imagePullSecrets | indent 6 }}
       {{- end }}
       {{- if eq .Values.cloudProvider "aws"}}
       nodeSelector:
