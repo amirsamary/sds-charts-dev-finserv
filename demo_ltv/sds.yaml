@@ -71,6 +71,14 @@ externalServicesDeclarations:
    enabledChartField: management.enabled
    label: Management Portal over Load Balancer
    description: Port to access the management portal over a Load Balancer
+ - name: application-ui
+   type: loadBalancer
+   hostnameChartField: ui.hostname
+   loadBalancerPortChartField: ui.port
+   enabled: false
+   enabledChartField: ui.enabled
+   label: LTV Demo UI
+   description: Port to access the application UI over a Load Balancer
 
 endpoints:
 - title: Getting Started
@@ -132,3 +140,15 @@ endpoints:
   presentation: apiEndpoint
   type: intersystems-iris-jdbc
   url: jdbc:IRIS://{externalService.host}:{externalService.port}/USER
+
+- title: UI 2.0
+  icon: bpleditor.png
+  group: Live Trade Valuation
+  description: Live Trade Valuation Demo 2.0
+  type: browsing
+  url: http://{externalService.host}:{externalService.port}/
+  contexts: 
+  - manage
+  visibility: external
+  presentation: link
+  externalService: application-ui
