@@ -12,10 +12,23 @@ spec:
     data:
       podTemplate:
         spec:
+          {{- if eq .Values.cloudProvider "AWS" }}
+          {{- if .Values.compute.database.nodeTypeSelector }}
+          nodeSelector:
+            sds/node-type: {{ .Values.compute.database.nodeTypeSelector }}
+          {{- end }}
+          {{- if or .Values.compute.database.cpu .Values.compute.database.memory }}
           resources:
-              requests:
-                memory: {{ .Values.compute.requests.memory }}
-
+            requests:
+              {{- if .Values.compute.database.cpu }}
+              cpu: {{ .Values.compute.database.cpu }}
+              {{- end }}
+              {{- if .Values.compute.database.memory }}
+              memory: {{ .Values.compute.database.memory }}
+              {{- end }}
+          {{- end }}
+          {{- end }}
+          
         {{- if .Values.imagePullSecrets }}
           imagePullSecrets:      
 {{ toYaml .Values.imagePullSecrets | indent 10 }}

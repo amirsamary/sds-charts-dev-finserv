@@ -18,7 +18,9 @@ storageJournal2:
   storageClass : local-path
 
 compute:
-  requests:
+  database:
+    nodeTypeSelector: ""
+    cpu: 4
     memory: 512Mi
 
 mirrored: false
