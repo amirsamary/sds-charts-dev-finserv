@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: ltv-frontend
-    spec:     
+    spec:   
       #priorityClassName: sds-normal
       {{- if .Values.imagePullSecrets }}
       imagePullSecrets:      
