@@ -13,7 +13,15 @@ secrets:
 - name: intersystems-container-registry-secret
   reason: These are the credentials to authenticate with containers.intersystems.com
 EULSA: https://www.intersystems.com/EULSA-Docs/InterSystems_IRIS_Cloud_End_User-8_14_19.pdf 
-
+compute:
+  computeSpecs:
+  - name: database
+    label: Database Node Specification
+    categoryFilter: CO,MO,GP
+    nodeSelectorField: compute.database.nodeTypeSelector
+    cpuRequestField: compute.database.cpu
+    memoryRequestField: compute.database.memory
+    help: Specifies how many cores and how much memory the demo will be using
 storage:
   storageSpecs:
   - name: database
