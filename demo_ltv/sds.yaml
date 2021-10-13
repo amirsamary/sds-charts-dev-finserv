@@ -160,3 +160,10 @@ endpoints:
   visibility: external
   presentation: link
   externalService: ltv-frontend
+
+endpointDependencies:
+ - dependency: trade-datasource
+   endpointType: kafka
+   reason: This application needs to pull trades and price updates from kafka topics
+   chartField: kafkaBroker
+   optional: false

@@ -40,6 +40,8 @@ spec:
             value: {{ .Values.cloudProviderRegion }}
           - name: SERVICE_INTERNAL_NAME
             value: {{ .Values.serviceInternalName }}
+          - name: KAFKA_BROKER
+            value: {{ .Values.kafkaBroker }}
 
       mirrored: {{.Values.mirrored}}
       {{- if eq .Values.skaffold true }}

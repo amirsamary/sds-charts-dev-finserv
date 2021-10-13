@@ -26,7 +26,7 @@ compute:
 mirrored: false
 image:
   registry: containers.intersystems.com/iscinternal/sds/demo_ltv
-  tag: 2.0.0
+  tag: 2.1.2
   backend:
     repository: ltv_service
   frontend:
@@ -35,6 +35,8 @@ image:
 # This will be injected by the control plane:
 imagePullSecrets:
  - name: intersystems-container-registry-secret
+
+kafkaBroker: b-1.sds-fs-occ.o5d16i.c2.kafka.us-east-2.amazonaws.com:9092
 
 # Amir: Feb/2021
 # In the future, we need to see how we can secure the ingress with TLS
