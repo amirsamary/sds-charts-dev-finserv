@@ -12,22 +12,21 @@ spec:
     data:
       podTemplate:
         spec:
-          {{- if eq .Values.cloudProvider "AWS" }}
+          
           {{- if .Values.compute.database.nodeTypeSelector }}
           nodeSelector:
             sds/node-type: {{ .Values.compute.database.nodeTypeSelector }}
           {{- end }}
-          {{- if or .Values.compute.database.cpu .Values.compute.database.memory }}
+          
           resources:
-            requests:
-              {{- if .Values.compute.database.cpu }}
+            requests:              
               cpu: {{ .Values.compute.database.cpu }}
-              {{- end }}
-              {{- if .Values.compute.database.memory }}
               memory: {{ .Values.compute.database.memory }}
-              {{- end }}
-          {{- end }}
-          {{- end }}
+
+          tolerations:
+          - key: sds/select-worker
+            value: select-worker
+            effect: NoSchedule
           
         {{- if .Values.imagePullSecrets }}
           imagePullSecrets:      
@@ -47,7 +46,7 @@ spec:
       {{- if eq .Values.skaffold true }}
       image: {{ .Values.skaffoldImage }}
       {{- else }}
-      image: {{ .Values.image.registry }}/{{ .Values.image.backend.repository }}:{{ .Values.image.tag }}
+      image: {{ .Values.image.registry }}/{{ .Values.image.backend.repository }}:{{ .Chart.AppVersion }}
       {{- end }}
 
       updateStrategy:

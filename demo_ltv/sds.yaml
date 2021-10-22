@@ -16,12 +16,19 @@ EULSA: https://www.intersystems.com/EULSA-Docs/InterSystems_IRIS_Cloud_End_User-
 compute:
   computeSpecs:
   - name: database
-    label: Database Node Specification
+    label: Database Node Spec.
     categoryFilter: CO,MO,GP
     nodeSelectorField: compute.database.nodeTypeSelector
     cpuRequestField: compute.database.cpu
     memoryRequestField: compute.database.memory
-    help: Specifies how many cores and how much memory the demo will be using
+    help: Specifies how many cores and how much memory the database will be using
+  - name: frontend
+    label: Front End Node Spec.
+    categoryFilter: CO,MO,GP
+    nodeSelectorField: compute.frontend.nodeTypeSelector
+    cpuRequestField: compute.frontend.cpu
+    memoryRequestField: compute.frontend.memory
+    help: Specifies how many cores and how much memory the front end will be using
 storage:
   storageSpecs:
   - name: database

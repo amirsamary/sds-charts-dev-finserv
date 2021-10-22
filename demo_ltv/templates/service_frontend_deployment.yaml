@@ -13,21 +13,33 @@ spec:
       labels:
         app: ltv-frontend
     spec:   
-      #priorityClassName: sds-normal
-      {{- if .Values.imagePullSecrets }}
-      imagePullSecrets:      
-{{ toYaml .Values.imagePullSecrets | indent 6 }}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+      {{- toYaml . | nindent 6 }}
       {{- end }}
-      {{- if eq .Values.cloudProvider "aws"}}
-      nodeSelector:
-        sds/node-type: cp-frontend
-      {{- end }}
+      
       containers:
-        - name: ltv-frontend
-          {{- if eq .Values.skaffold true }}
-          image: {{ .Values.frontend.skaffoldImage }}
-          {{- else }}
-          image: {{ .Values.image.registry }}/{{ .Values.image.frontend.repository }}:{{ .Values.image.tag }}
-          {{- end }}
-          ports:
-            - containerPort: 4200
+      - name: ltv-frontend
+        resources:
+          requests:              
+            cpu: {{ .Values.compute.frontend.cpu }}
+            memory: {{ .Values.compute.frontend.memory }}
+
+        {{- if eq .Values.skaffold true }}
+        image: {{ .Values.frontend.skaffoldImage }}
+        {{- else }}
+        image: {{ .Values.image.registry }}/{{ .Values.image.frontend.repository }}:{{ .Chart.AppVersion }}
+        {{- end }}
+        ports:
+          - containerPort: 4200
+
+      {{- if .Values.compute.frontend.nodeTypeSelector }}
+      nodeSelector:
+        sds/node-type: {{ .Values.compute.frontend.nodeTypeSelector }}
+      {{- end }}
+          
+
+      tolerations:
+      - key: sds/select-worker
+        value: select-worker
+        effect: NoSchedule

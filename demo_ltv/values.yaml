@@ -22,11 +22,14 @@ compute:
     nodeTypeSelector: ""
     cpu: 4
     memory: 512Mi
+  frontend:
+    nodeTypeSelector: ""
+    cpu: 4
+    memory: 512Mi
 
 mirrored: false
 image:
   registry: containers.intersystems.com/iscinternal/sds/demo_ltv
-  tag: 2.1.2
   backend:
     repository: ltv_service
   frontend:
