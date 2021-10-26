@@ -12,9 +12,21 @@ spec:
     data:
       podTemplate:
         spec:
+          {{- if .Values.compute.main.nodeTypeSelector }}
+          nodeSelector:
+            sds/node-type: {{ .Values.compute.main.nodeTypeSelector }}
+          {{- end }}
+
+          tolerations:
+          - key: sds/select-worker
+            value: select-worker
+            effect: NoSchedule
+
+          
           resources:
-              requests:
-                memory: "100Gi"
+            requests:
+              cpu: {{ .Values.compute.main.cpu }}
+              memory: {{ .Values.compute.main.memory }}
 
         {{- if .Values.imagePullSecrets }}
           imagePullSecrets:      
@@ -32,7 +44,7 @@ spec:
       {{- if eq .Values.skaffold true }}
       image: {{ .Values.skaffoldImage }}
       {{- else }}
-      image: {{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+      image: {{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Chart.AppVersion }}
       {{- end }}
 
       updateStrategy:
