@@ -7,7 +7,7 @@ entries:
       intersystems/sds-title: Financial Services Live Trade Valuation Demo
     apiVersion: v2
     appVersion: 2.1.2
-    created: "2021-10-25T20:07:17.270235-04:00"
+    created: "2022-01-21T16:18:16.607072-05:00"
     description: Use this service to securely stream real-time financial transactions.
     digest: 576674eb96abab4156a27741ebee837d0db3267d74a65b1d4637854d05b8a98d
     icon: https://amirsamary.github.io/sds-charts-dev-finserv/demo_ltv/icon.png
@@ -22,7 +22,7 @@ entries:
       intersystems/sds-title: Financial Services Live Trade Valuation Demo
     apiVersion: v2
     appVersion: 2.0.0
-    created: "2021-10-25T20:07:17.268672-04:00"
+    created: "2022-01-21T16:18:16.605507-05:00"
     description: Use this service to securely stream real-time financial transactions.
     digest: ea738b66435600d0f25cc865b1acd8d28893fc72bfd64395557b695ca07ee20f
     icon: https://amirsamary.github.io/sds-charts-dev-finserv/demo_ltv/icon.png
@@ -37,10 +37,10 @@ entries:
       intersystems/sds-organization: InterSystems Corporation
       intersystems/sds-title: Financial Services Trade Margin Breaching Demo
     apiVersion: v2
-    appVersion: 1.0.1
-    created: "2021-10-25T20:07:17.272312-04:00"
+    appVersion: 1.1.0
+    created: "2022-01-21T16:18:16.608791-05:00"
     description: Use this service to securely stream real-time financial transactions.
-    digest: e14cdeec3dfe642fc7f0668ea52a56eb1f737da2d8a53cfcc9dd4882b045ade2
+    digest: 921050bd6de54307133112a2de3972c5433ca1dd2e9cee473e1558bf6cb1770e
     icon: https://amirsamary.github.io/sds-charts-dev-finserv/demo_fs_marginbreach/icon.jpg
     name: demo_fs_marginbreach
     type: application
@@ -53,7 +53,7 @@ entries:
       intersystems/sds-title: Financial Services Trade Margin Breaching Demo
     apiVersion: v2
     appVersion: 1.0.2
-    created: "2021-10-25T20:07:17.271481-04:00"
+    created: "2022-01-21T16:18:16.608182-05:00"
     description: Use this service to securely stream real-time financial transactions.
     digest: 181e236c67fdcae5e198764b409062d3e1b5f5f449f93d44aff911af232ba0a4
     icon: https://amirsamary.github.io/sds-charts-dev-finserv/demo_fs_marginbreach/icon.jpg
@@ -69,7 +69,7 @@ entries:
       intersystems/sds-title: Financial Services Business 360
     apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-10-25T20:07:17.273697-04:00"
+    created: "2022-01-21T16:18:16.610015-05:00"
     description: Provide a consolidated live and historical view of your business
       across products, entities, and geographies.
     digest: 2b7e360e4517f8b106f5e1b7d36f9cdb1fbca417f673197172a43b6286bab790
@@ -86,7 +86,7 @@ entries:
       intersystems/sds-title: Financial Services Customer 360
     apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-10-25T20:07:17.275029-04:00"
+    created: "2022-01-21T16:18:16.611067-05:00"
     description: Provide a consolidated live and historical view of your customer
       across the products and services provided and other activities.
     digest: c12695b608389278f1e39f4dcb3550fa64dea8fda48a6e1cb31c87d4d1df8f48
@@ -103,7 +103,7 @@ entries:
       intersystems/sds-title: Financial Services Risk 360
     apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-10-25T20:07:17.276369-04:00"
+    created: "2022-01-21T16:18:16.61222-05:00"
     description: Provide a consolidated live and historical view of various risk exposures
       across and within business, products, regions, and entities.
     digest: 3a551a3f62b61b9629962bf78d4ec521602c84dc23691c194cf7b44bb675212b
@@ -113,4 +113,4 @@ entries:
     urls:
     - https://amirsamary.github.io/sds-charts-dev-finserv/sup_risk360-1.0.0.tgz
     version: 1.0.0
-generated: "2021-10-25T20:07:17.26707-04:00"
+generated: "2022-01-21T16:18:16.603246-05:00"
