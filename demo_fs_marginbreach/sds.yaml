@@ -142,6 +142,18 @@ endpoints:
   presentation: link
   externalService: management
 
+- title: Margin Breach Incidents
+  icon: bpleditor.png
+  group: Margin Monitoring
+  description: Workflow inbox with margin breach incident tickets
+  type: browsing
+  url: http://{externalService.host}:{externalService.port}/csp/user/_DeepSee.UserPortal.Workflow.zen
+  contexts: 
+  - manage
+  visibility: external
+  presentation: link
+  externalService: management
+
 - title: Web Terminal
   group: Developer
   description: Open an instance of terminal in your browser
