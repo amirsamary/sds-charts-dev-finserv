@@ -1,176 +1,175 @@
 apiVersion: v1
 sections:
-- label: High Availability
-  fields:
-  - field: mirrored
-    type: boolean
-    label: Mirroring Support
-    help: If you enable mirroring, then it's mirrored
-    value: "false"
+  - label: High Availability
+    fields:
+      - field: mirrored
+        type: boolean
+        label: Mirroring Support
+        help: If you enable mirroring, then it's mirrored
+        value: "false"
 secrets:
-- name: iris-key-secret
-  reason: The IRIS License to be used with this deployment
-- name: intersystems-container-registry-secret
-  reason: These are the credentials to authenticate with containers.intersystems.com
-EULSA: https://www.intersystems.com/EULSA-Docs/InterSystems_IRIS_Cloud_End_User-8_14_19.pdf 
+  - name: iris-key-secret
+    reason: The IRIS License to be used with this deployment
+  - name: intersystems-container-registry-secret
+    reason: These are the credentials to authenticate with containers.intersystems.com
+EULSA: https://www.intersystems.com/EULSA-Docs/InterSystems_IRIS_Cloud_End_User-8_14_19.pdf
 compute:
   computeSpecs:
-  - name: database
-    label: Database Node Spec.
-    categoryFilter: CO,MO,GP
-    nodeSelectorField: compute.database.nodeTypeSelector
-    cpuRequestField: compute.database.cpu
-    memoryRequestField: compute.database.memory
-    help: Specifies how many cores and how much memory the database will be using
-  - name: frontend
-    label: Front End Node Spec.
-    categoryFilter: CO,MO,GP
-    nodeSelectorField: compute.frontend.nodeTypeSelector
-    cpuRequestField: compute.frontend.cpu
-    memoryRequestField: compute.frontend.memory
-    help: Specifies how many cores and how much memory the front end will be using
+    - name: database
+      label: Database Node Spec.
+      categoryFilter: CO,MO,GP
+      nodeSelectorField: compute.database.nodeTypeSelector
+      cpuRequestField: compute.database.cpu
+      memoryRequestField: compute.database.memory
+      help: Specifies how many cores and how much memory the database will be using
+    - name: frontend
+      label: Front End Node Spec.
+      categoryFilter: CO,MO,GP
+      nodeSelectorField: compute.frontend.nodeTypeSelector
+      cpuRequestField: compute.frontend.cpu
+      memoryRequestField: compute.frontend.memory
+      help: Specifies how many cores and how much memory the front end will be using
 storage:
   storageSpecs:
-  - name: database
-    label: Database
-    sizeField: storageDB.size
-    storageClassField: storageDB.storageClass
-    help: This is the storage reserved for your database...
-  - name: wij
-    label: Write Image Journal
-    sizeField: storageWIJ.size
-    storageClassField: storageWIJ.storageClass
-    help: This is the storage reserved for your database...
-  - name: journal1
-    label: Primary Journal
-    sizeField: storageJournal1.size
-    storageClassField: storageJournal1.storageClass
-    help: This is the storage reserved for your primary journal data...
-  - name: journal2
-    label: Secondary Journal
-    sizeField: storageJournal2.size
-    storageClassField: storageJournal2.storageClass
-    help: This is the storage reserved for your secondary journal data...
+    - name: database
+      label: Database
+      sizeField: storageDB.size
+      storageClassField: storageDB.storageClass
+      help: This is the storage reserved for your database...
+    - name: wij
+      label: Write Image Journal
+      sizeField: storageWIJ.size
+      storageClassField: storageWIJ.storageClass
+      help: This is the storage reserved for your database...
+    - name: journal1
+      label: Primary Journal
+      sizeField: storageJournal1.size
+      storageClassField: storageJournal1.storageClass
+      help: This is the storage reserved for your primary journal data...
+    - name: journal2
+      label: Secondary Journal
+      sizeField: storageJournal2.size
+      storageClassField: storageJournal2.storageClass
+      help: This is the storage reserved for your secondary journal data...
   allowCustom: false
   storageOptions:
-  - name: Small
-    help: Ideal for small workloads...
-    storageOptionSpecs:
-    - storageSpecName: database
-      size: 100
-      IOPS: 2000
-    - storageSpecName: wij
-      size: 50
-      IOPS: 2000
-    - storageSpecName: journal1
-      size: 100
-      IOPS: 2000
-    - storageSpecName: journal2
-      size: 100
-      IOPS: 2000
+    - name: Small
+      help: Ideal for small workloads...
+      storageOptionSpecs:
+        - storageSpecName: database
+          size: 100
+          IOPS: 2000
+        - storageSpecName: wij
+          size: 50
+          IOPS: 2000
+        - storageSpecName: journal1
+          size: 100
+          IOPS: 2000
+        - storageSpecName: journal2
+          size: 100
+          IOPS: 2000
 
 externalServicesDeclarations:
- - name: super-server
-   type: loadBalancer
-   hostnameChartField: superServer.hostname
-   loadBalancerPortChartField: superServer.port
-   enabled: false
-   enabledChartField: superServer.enabled
-   label: Super Server Port
-   description: Port through which JDBC/ODBC connections are made
- - name: management
-   type: loadBalancer
-   hostnameChartField: management.hostname
-   loadBalancerPortChartField: management.port
-   enabled: false
-   enabledChartField: management.enabled
-   label: Management Portal over Load Balancer
-   description: Port to access the management portal over a Load Balancer
- - name: ltv-frontend
-   type: loadBalancer
-   hostnameChartField: ui.hostname
-   loadBalancerPortChartField: ui.port
-   enabled: false
-   enabledChartField: ui.enabled
-   label: LTV Demo UI
-   description: Port to access the application UI over a Load Balancer
+  - name: super-server
+    type: loadBalancer
+    hostnameChartField: superServer.hostname
+    loadBalancerPortChartField: superServer.port
+    enabled: false
+    enabledChartField: superServer.enabled
+    label: Super Server Port
+    description: Port through which JDBC/ODBC connections are made
+  - name: management
+    type: loadBalancer
+    hostnameChartField: management.hostname
+    loadBalancerPortChartField: management.port
+    enabled: false
+    enabledChartField: management.enabled
+    label: Management Portal over Load Balancer
+    description: Port to access the management portal over a Load Balancer
+  - name: ltv-frontend
+    type: loadBalancer
+    hostnameChartField: ui.hostname
+    loadBalancerPortChartField: ui.port
+    enabled: false
+    enabledChartField: ui.enabled
+    label: LTV Demo UI
+    description: Port to access the application UI over a Load Balancer
 
 endpoints:
-- title: Getting Started
-  group: Documentation
-  description: Learn more about...
-  type: browsing
-  url: https://gettingstarted.intersystems.com
-  contexts: 
-  - catalog
-  - documentation
-  visibility: foreign
-  presentation: link
+  - title: Getting Started
+    group: Documentation
+    description: Learn more about...
+    type: browsing
+    url: https://gettingstarted.intersystems.com
+    contexts:
+      - catalog
+      - documentation
+    visibility: foreign
+    presentation: link
 
-- title: Dashboard
-  icon: bpleditor.png
-  group: Live Trade Valuation
-  description: Live Trade Valuation Demo
-  type: browsing
-  url: http://{externalService.host}:{externalService.port}/csp/user/tradevaluation.csp
-  contexts: 
-  - manage
-  visibility: external
-  presentation: link
-  externalService: management
+  - title: Dashboard
+    icon: bpleditor.png
+    group: Live Trade Valuation
+    description: Live Trade Valuation Demo
+    type: browsing
+    url: http://{externalService.host}:{externalService.port}/csp/user/tradevaluation.csp
+    contexts:
+      - manage
+    visibility: external
+    presentation: link
+    externalService: management
 
-- title: Production
-  icon: bpleditor.png
-  group: Interoperability
-  description: Open the IRIS Interoperability Production Editor
-  type: browsing
-  url: http://{externalService.host}:{externalService.port}/csp/user/EnsPortal.ProductionConfig.zen
-  contexts: 
-  - manage
-  visibility: external
-  presentation: link
-  externalService: management
+  - title: Production
+    icon: bpleditor.png
+    group: Interoperability
+    description: Open the IRIS Interoperability Production Editor
+    type: browsing
+    url: http://{externalService.host}:{externalService.port}/csp/user/EnsPortal.ProductionConfig.zen
+    contexts:
+      - manage
+    visibility: external
+    presentation: link
+    externalService: management
 
+  - title: Internal JDBC Endpoint
+    contexts:
+      - manage
+    icon: bpleditor.png
+    group: Connectivity
+    description: Connect using JDBC
+    visibility: internal
+    presentation: apiEndpoint
+    type: intersystems-iris-jdbc
+    clusterIPService: iris-svc
+    url: jdbc:IRIS://{clusterIPService.host}:1972/USER
 
-- title: Internal JDBC Endpoint
-  contexts:
-  - manage
-  icon: bpleditor.png
-  group: Connectivity
-  description: Connect using JDBC
-  visibility: internal
-  presentation: apiEndpoint
-  type: intersystems-iris-jdbc
-  clusterIPService: iris-svc
-  url: jdbc:IRIS://{clusterIPService.host}:1972/USER
+  - title: External JDBC Endpoint
+    contexts:
+      - manage
+    icon: bpleditor.png
+    group: Connectivity
+    description: Connect using JDBC from outside the cluster
+    visibility: external
+    externalService: super-server
+    presentation: apiEndpoint
+    type: intersystems-iris-jdbc
+    url: jdbc:IRIS://{externalService.host}:{externalService.port}/USER
 
-- title: External JDBC Endpoint
-  contexts:
-  - manage
-  icon: bpleditor.png
-  group: Connectivity
-  description: Connect using JDBC from outside the cluster
-  visibility: external
-  externalService: super-server
-  presentation: apiEndpoint
-  type: intersystems-iris-jdbc
-  url: jdbc:IRIS://{externalService.host}:{externalService.port}/USER
-
-- title: UI 2.0
-  icon: bpleditor.png
-  group: Live Trade Valuation
-  description: Live Trade Valuation Demo 2.0
-  type: browsing
-  url: http://{externalService.host}:{externalService.port}/
-  contexts: 
-  - manage
-  visibility: external
-  presentation: link
-  externalService: ltv-frontend
+  - title: UI 2.0
+    icon: bpleditor.png
+    group: Live Trade Valuation
+    description: Live Trade Valuation Demo 2.0
+    type: browsing
+    url: http://{externalService.host}:{externalService.port}/
+    contexts:
+      - manage
+    visibility: external
+    presentation: link
+    externalService: ltv-frontend
 
 endpointDependencies:
- - dependency: trade-datasource
-   endpointType: kafka
-   reason: This application needs to pull trades and price updates from kafka topics
-   chartField: kafkaBroker
-   optional: false
+  - dependency: trade-datasource
+    endpointType: kafka
+    reason: This application needs to pull trades and price updates from kafka topics
+    chartField: kafkaBroker
+    optional: false
