@@ -167,6 +167,28 @@ endpoints:
     presentation: link
     externalService: ltv-frontend
 
+  - title: Web Terminal
+    group: Developer
+    description: Open an instance of terminal in your browser
+    type: browsing
+    url: http://{externalService.host}:{externalService.port}/terminal/
+    contexts:
+      - manage
+    visibility: external
+    presentation: link
+    externalService: management
+    
+  - title: SQL
+    group: Developer
+    description: Open the SQL tab in the management portal
+    type: browsing
+    url: http://{externalService.host}:{externalService.port}/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen
+    contexts:
+      - manage
+    visibility: external
+    presentation: link
+    externalService: management
+
 endpointDependencies:
   - dependency: trade-datasource
     endpointType: kafka
