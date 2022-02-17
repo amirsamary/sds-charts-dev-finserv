@@ -5,7 +5,7 @@ metadata:
   namespace: {{.Release.Namespace}}
 spec:
   licenseKeySecret:
-    name: iris-key-secret
+    name: {{ .Values.requiredSecrets.irisLicense }}
   configSource:
     name: iris-cpf-config-map
   topology:
@@ -28,10 +28,10 @@ spec:
             value: select-worker
             effect: NoSchedule
           
-        {{- if .Values.imagePullSecrets }}
-          imagePullSecrets:      
-{{ toYaml .Values.imagePullSecrets | indent 10 }}
-        {{- end }}
+          imagePullSecrets:
+          {{- if .Values.requiredSecrets.intersystemsContainerRegistrySecret }}    
+          - name: {{ .Values.requiredSecrets.intersystemsContainerRegistrySecret }}
+          {{- end }}
           env:
           - name: CLOUD_PROVIDER
             value: {{ .Values.cloudProvider }}

@@ -13,9 +13,9 @@ spec:
       labels:
         app: ltv-frontend
     spec:   
-      {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
-      {{- toYaml . | nindent 6 }}
+      {{- if .Values.requiredSecrets.intersystemsContainerRegistrySecret }}    
+      - name: {{ .Values.requiredSecrets.intersystemsContainerRegistrySecret }}
       {{- end }}
       
       containers:

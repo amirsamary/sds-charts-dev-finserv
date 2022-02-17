@@ -35,9 +35,11 @@ image:
   frontend:
     repository: ltv_frontend
 
-# This will be injected by the control plane:
-imagePullSecrets:
- - name: intersystems-container-registry-secret
+# These are the secret fields needed to successfully deploy.
+# They will be injected by the control plane:
+requiredSecrets:
+  irisLicense: ""
+  intersystemsContainerRegistrySecret: ""
 
 kafkaBroker: b-1.sds-fs-occ.o5d16i.c2.kafka.us-east-2.amazonaws.com:9092
 

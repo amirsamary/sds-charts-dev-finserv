@@ -8,10 +8,13 @@ sections:
         help: If you enable mirroring, then it's mirrored
         value: "false"
 secrets:
-  - name: iris-key-secret
-    reason: The IRIS License to be used with this deployment
-  - name: intersystems-container-registry-secret
-    reason: These are the credentials to authenticate with containers.intersystems.com
+- field: requiredSecrets.irisLicense
+  type: intersystems-iris-license
+  reason: The IRIS License to be used with this deployment
+- field: requiredSecrets.intersystemsContainerRegistrySecret
+  type: image-pull-secret
+  subType: containers.intersystems.com
+  reason: These are the credentials to authenticate with containers.intersystems.com
 EULSA: https://www.intersystems.com/EULSA-Docs/InterSystems_IRIS_Cloud_End_User-8_14_19.pdf
 compute:
   computeSpecs:
